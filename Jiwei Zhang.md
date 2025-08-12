@@ -30,6 +30,7 @@ Postal：100876                                                             zhan
 
 - Journal
   - Journal of Artificial Intelligence & Control Systems
+  - Journal of Xi'an University of Posts and Telecommunications‌
 #####  Guest Editor
 - Journal
   - IEEE Transactions on Consumer Electronics
@@ -45,19 +46,19 @@ Postal：100876                                                             zhan
 ##### Chair/PC member/TPC member
 
 - Conference
-  - The 40th Annual AAAI Conference on Artificial Intelligence(AAAI2026), PC member
-  - The 33rd ACM International Conference on Multimedia(ACMMM2025), PC member
-  - ACM SIGKDD Conference on Knowledge Discovery and Data Mining(KDD2025), PC member
-  - International Joint Conference on Artificial Intelligence(IJCAI2025), PC member
-  - International Joint Conference on Artificial Intelligence2025 Survey Track(IJCAI2025 Survey Track), PC member
-  - The Fifteenth International Conference on Web Search and Data Mining (WSDM2022), PC member
-  - ACM SIGKDD Conference on Knowledge Discovery and Data Mining （KDD2022), PC member
-  - The Fourteenth International Conference on Swarm Intelligence (ICSI'2023),  Special session Chair
-  - The Eighth International Conference on Data Mining and Big Data(DMBD2023),  Special session Chair
-  - The SeventhInternational Conference on Data Mining and Big Data(DMBD2022),  Special session Chair
-  - The 4th International Workshop on Cyberspace Security (IWCSS2020) , Publicity Chairs
-  - The 17th International Conference on Digital Image Processing (ICDIP 2025), Technical Program Committee
-  - The 2nd International Conference on Advanced Technologies and Applications of Modern Industry (ATAMI 2022), Technical Program Committee
+  - The 40th Annual AAAI Conference on Artificial Intelligence(AAAI2026), **PC member**
+  - The 33rd ACM International Conference on Multimedia(ACMMM2025), **PC member**
+  - ACM SIGKDD Conference on Knowledge Discovery and Data Mining(KDD2025), **PC member**
+  - International Joint Conference on Artificial Intelligence(IJCAI2025), **PC member**
+  - International Joint Conference on Artificial Intelligence2025 Survey Track(IJCAI2025 Survey Track), **PC member**
+  - The Fifteenth International Conference on Web Search and Data Mining (WSDM2022), **PC member**
+  - ACM SIGKDD Conference on Knowledge Discovery and Data Mining （KDD2022), **PC member**
+  - The Fourteenth International Conference on Swarm Intelligence (ICSI'2023),  **Special session Chair**
+  - The Eighth International Conference on Data Mining and Big Data(DMBD2023),  **Special session Chair**
+  - The SeventhInternational Conference on Data Mining and Big Data(DMBD2022),  **Special session Chair**
+  - The 4th International Workshop on Cyberspace Security (IWCSS2020) , **Publicity Chairs**
+  - The 17th International Conference on Digital Image Processing (ICDIP 2025), **Technical Program Committee**
+  - The 2nd International Conference on Advanced Technologies and Applications of Modern Industry (ATAMI 2022), **Technical Program Committee**
 
 #####  Reviewer   
 
@@ -100,7 +101,7 @@ Postal：100876                                                             zhan
 
 4. Zhang J, Tu Y, Sun Z, et al.Intelligent Connected Vehicle Data Privacy and Security Transaction Sharing System Based on Blockchain,IEEE Transactions on Intelligent Transportation Systems,2025.
 
-5. Qixian Hao, Kai Wang, Shaozhang Niu, Jiwei Zhang*, Haoliang Cui. TEPR-Net: Image Inpainting Localization Network via Texture Enhancement and Progressive Refinement. IEEE Transactions on Multimedia,2025.*
+5. Qixian Hao, Kai Wang, Shaozhang Niu, Jiwei Zhang**, Haoliang Cui. TEPR-Net: Image Inpainting Localization Network via Texture Enhancement and Progressive Refinement. IEEE Transactions on Multimedia,2025.*
 
 6. F Kou, Y Yao, J Han, J Wang, H Li, X Li, J Zhang**. DualFocus GAN for Robust Watermarking in Transportation Cyber-Physical Systems,IEEE Transactions on Intelligent Transportation Systems,2025.*
 
@@ -148,7 +149,7 @@ Postal：100876                                                             zhan
 
     **More paper can visit google link https://scholar.google.com/citations?hl=zh-CN&user=CiOjUTMAAAAJ **
 
-###  <u>**Research Projects**</u>
+###  <u>**Selected Projects**</u>
 
 ✧Image Tampering Reliability Detection Algorithm Based on Feature Fusion
 ➢Role: Project Group Leader
