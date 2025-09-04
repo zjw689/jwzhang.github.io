@@ -1,12 +1,12 @@
 ##                             Jiwei Zhang (Ph.D.)
 
-**Present Address                                                             Contact**              
-
-No. 10, Xitucheng Road, Haidian                                \+ (86) 13051576839
-
-District, Beijing, China                                                  jwzhang666@bupt.edu.cn  (Common email addresses)
-
-Postal：100876                                                             zhangjiwei5510@163.com
+**Present Address**              
+No. 10, Xitucheng Road, Haidian District, Beijing, China   
+Postal：100876  
+**Contact**              
+\+ (86) 13051576839
+jwzhang666@bupt.edu.cn  (Common email addresses)
+                                                       zhangjiwei5510@163.com
 
 ###  <u>**Research Interests**</u>
 
