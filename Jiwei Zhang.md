@@ -26,11 +26,13 @@ Postal：100876                                                             zhan
 
 ###  <u>**Academic Activities**</u>
 
-##### **Associate Editor**
+##### Associate Editor/Youth Editor
 
 - Journal
-  - Journal of Artificial Intelligence & Control Systems
-  - Journal of Xi'an University of Posts and Telecommunications‌
+  - Telecommunication Systems,   Associate Editor
+  - Data Science and Management,   Youth Editor
+  - Journal of Artificial Intelligence & Control Systems,    Youth Editor
+  - Journal of Xi'an University of Posts and Telecommunications,‌   Youth Editor
 #####  Guest Editor
 - Journal
   - IEEE Transactions on Consumer Electronics
@@ -46,6 +48,7 @@ Postal：100876                                                             zhan
 ##### Chair/PC member/TPC member
 
 - Conference
+  - International Conference on Learning Representations 2026(ICLR2026), **Area Chair**
   - The 40th Annual AAAI Conference on Artificial Intelligence(AAAI2026), **PC member**
   - The 33rd ACM International Conference on Multimedia(ACMMM2025), **PC member**
   - ACM SIGKDD Conference on Knowledge Discovery and Data Mining(KDD2025), **PC member**
