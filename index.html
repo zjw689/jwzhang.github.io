@@ -1,630 +1,963 @@
-<!doctype html>
-<html>
-<head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Jiwei Zhang</title><style>html{font-size:16.000000px;}</style><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
-.mac-os-11 { --title-bar-height: 28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
-.typora-export .task-list-item input { pointer-events: none; }
-@media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
+html,body{background-color: #feffff;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #333333;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 1rem;
+  word-wrap: break-word;
 }
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
-button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
-#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px; }
-thead, tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
-.CodeMirror-linenumber { -webkit-user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-svg { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li blockquote { margin: 1rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#09844f;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -1.25rem;
+  padding-right: 0.25rem;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #0595bf;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #333333;
+}
+.markdown-body em{
+  color: #333333;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 0.9rem;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366dd;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#0366dd;stroke: #0366dd;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 0.1875rem 0.3125rem;
+  font: 0.75rem SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 0.75rem;
+  color: #09844f;
+  vertical-align: middle;
+  background-color: #f7f8f8;
+  border: 1px solid #e1e2e2;
+  border-radius: 0.1875rem;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 0.625rem;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 0.75rem;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.markdown-body hr {
+  height: .25rem;
+  padding: 0;
+  margin: 1.5rem 0;
+  background-color: #e1e2e2;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1rem;
+  color: #636363;
+  border-left: .25rem solid #bbbbbb;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3rem;
+  border-bottom: 1px solid #e7e8e8;
+  color: #0595bf;
+}
+
+.markdown-body h2 {
+  font-size: 1.5rem;
+  color: #0595bf;
+}
+
+.markdown-body h3 {
+  font-size: 1.25rem;
+  color: #0595bf;
+}
+
+.markdown-body h4 {
+  font-size: 1rem;
+  color: #0595bf;
+}
+
+.markdown-body h5 {
+  font-size: .875rem;
+  color: #0595bf;
+}
+
+.markdown-body h6 {
+  font-size: .85rem;
+  color: #0595bf;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2rem;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 1rem;
+}
+
+.markdown-body li+li {
+  margin-top: .25rem;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #b9baba;
+}
+
+.markdown-body table tr {
+  background-color: #feffff;
+  border-top: 1px solid #b9baba;
+}
+
+.markdown-body table th {
+  background-color: #e7e8e8;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f9f9;
+}
+
+.markdown-body img,.markdown-body video {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 1.25rem;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 1.25rem;
+}
+
+.markdown-body code {
+  padding: .2rem .4rem;
+  margin: 0;
+  font-size: 85%;
+  background-color: #f7f8f8;
+  color: #09844f;
+  border-radius: 0.1875rem;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 1rem;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 1rem;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f8f8;
+  border-radius: 0.1875rem;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #09844f;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 0.1875rem;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2rem .25rem -1.6rem;
+  vertical-align: middle;
+}
+
+.markdown-body .task-list-item input[type="checkbox"]{
+-webkit-appearance: none;-moz-appearance: none;appearance: none;
+width: 0.875rem; height: 0.875rem;outline: none;
+border: 1px solid #0366dd;border-radius: 2px; 
+}
+.markdown-body .task-list-item input[type="checkbox"]:checked {
+  background:no-repeat center/80% url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20fill%3D%22%230366dd%22%20d%3D%22M173.898%20439.404l-166.4-166.4c-9.997-9.997-9.997-26.206%200-36.204l36.203-36.204c9.997-9.998%2026.207-9.998%2036.204%200L192%20312.69%20432.095%2072.596c9.997-9.997%2026.207-9.997%2036.204%200l36.203%2036.204c9.997%209.997%209.997%2026.206%200%2036.204l-294.4%20294.401c-9.998%209.997-26.207%209.997-36.204-.001z%22%2F%3E%3C%2Fsvg%3E") ;
+}
+
+.markdown-body section.footnotes{
+    margin-top:3rem;
+    border-top:solid 1px #e1e2e2;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
 @media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
-  .typora-export * { print-color-adjust: exact; }
-  .typora-export #write { break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
-  .is-mac table { break-inside: avoid; }
-  #write > p:nth-child(1) { margin-top: 0px; }
-  .typora-export-show-outline .typora-export-sidebar { display: none; }
-  figure { overflow-x: visible; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-.MathJax_ref { fill: currentcolor; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.reversefootnote { font-family: ui-monospace, sans-serif; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: medium; }
-.highlight td, .highlight tr { border: 0px; }
-mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
-.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-.md-expand mark .md-meta { opacity: 0.3 !important; }
-mark .md-meta { color: rgb(0, 0, 0); }
-@media print {
-  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
-}
-.md-diagram-panel .messageText { stroke: none !important; }
-.md-diagram-panel .start-state { fill: var(--node-fill); }
-.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
-.md-fences.md-fences-math { font-size: 1em; }
-.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
-.md-fences-advanced:not(.md-focus) { background: inherit; }
-.mermaid-svg { margin: auto; }
-.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
-.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
-@media screen and (max-width: 1024px) {
-  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
-}
-@media screen and (max-width: 800px) {
-  .typora-export-sidebar { display: none; }
-}
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
-.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
-.outline-content strong { font-weight: 400; }
-.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
-.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
-.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
-.outline-expander:hover::before { content: ""; }
-.outline-h1 > .outline-item { padding-left: 0px; }
-.outline-h2 > .outline-item { padding-left: 1em; }
-.outline-h3 > .outline-item { padding-left: 2em; }
-.outline-h4 > .outline-item { padding-left: 3em; }
-.outline-h5 > .outline-item { padding-left: 4em; }
-.outline-h6 > .outline-item { padding-left: 5em; }
-.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
-.outline-label:hover { text-decoration: underline; }
-.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
-.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
-.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
-.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
-.outline-children { display: none; }
-.info-panel-tab-wrapper { display: none; }
-.outline-item-open > .outline-children { display: block; }
-.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
-.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
-.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
-.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
-.typora-export-collapse-outline .outline-children { display: none; }
-.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
-.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
-.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
-.md-inline-math-container mjx-container { zoom: 0.95; }
-mjx-container { break-inside: avoid; }
-.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
-.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
-.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
-.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
-.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
-.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
-.md-alert-text-note { color: rgb(9, 105, 218); }
-.md-alert-text-important { color: rgb(130, 80, 223); }
-.md-alert-text-warning { color: rgb(154, 103, 0); }
-.md-alert-text-tip { color: rgb(31, 136, 61); }
-.md-alert-text-caution { color: rgb(207, 34, 46); }
-.md-alert-text { font-size: 0.9rem; font-weight: 700; }
-.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
-.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
-
-
-:root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
 }
 
-@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1rem;
+    margin: .5rem 0;
+    overflow: auto;
 }
 
-body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #f7f8f8;
 }
 
-#write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1rem;
+    border-radius: .3rem;
+    white-space: normal;
 }
 
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #8e9c92;
 }
 
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
+.token.punctuation {
+    color: #2834ce;
 }
 
-#write > ul:first-child,
-#write > ol:first-child{
-    margin-top: 30px;
+.token.namespace {
+    opacity: .7;
 }
 
-a {
-    color: #4183C4;
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #2834ce;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #d32d26;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #bc319c;
+}
+
+.token.function,
+.token.class-name {
+    color: #967d41;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #784830;
+}
+
+.token.important,
+.token.bold {
     font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
 }
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
-}
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
-h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
+.token.italic {
+    font-style: italic;
 }
 
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8rem;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8rem;
+  width: 3rem; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #bfc0c0;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #bfc0c0;
+      display: block;
+      padding-right: 0.8rem;
+      text-align: right;
     }
 
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
     }
-}*/
-
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
-}
-li>ol,
-li>ul {
-    margin: 0 0;
-}
-hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: #e7e7e7;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
-}
-
-li p.first {
-    display: inline-block;
-}
-ul,
-ol {
-    padding-left: 30px;
-}
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
-}
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
-}
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: #777777;
-}
-blockquote blockquote {
-    padding-right: 0;
-}
-table {
-    padding: 0;
-    word-break: initial;
-}
-table tr {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
-}
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
-}
-table th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table th:first-child,
-table td:first-child {
-    margin-top: 0;
-}
-table th:last-child,
-table td:last-child {
-    margin-bottom: 0;
-}
-
-.CodeMirror-lines {
-    padding-left: 4px;
-}
-
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
-}
-
-.md-fences,
-code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
-}
-
-code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
-}
-
-.md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
+    html,body{margin:0;padding:4px;}
 }
 
 
-.md-task-list-item > input {
-  margin-left: -1.3em;
+
+div.code-toolbar {
+  position: relative;
 }
 
-@media print {
-    html {
-        font-size: 13px;
-    }
-    pre {
-        page-break-inside: avoid;
-        word-wrap: break-word;
-    }
+div.code-toolbar > .toolbar {
+  position: absolute;
+  z-index: 10;
+  top: .3em;
+  right: .2em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 
-.md-fences {
-	background-color: #f8f8f8;
-}
-#write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
-    border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
+div.code-toolbar:hover > .toolbar {
+  opacity: 1;
 }
 
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+  opacity: 1;
 }
 
-.md-mathjax-midline {
-    background: #fafafa;
+div.code-toolbar > .toolbar > .toolbar-item {
+  display: inline-block;
 }
 
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
-}
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
-    color: inherit;
+div.code-toolbar > .toolbar > .toolbar-item > a {
+  cursor: pointer;
 }
 
-.md-tag {
-    color: #a7a7a7;
-    opacity: 1;
+div.code-toolbar > .toolbar > .toolbar-item > button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+  color: inherit;
+  font-size: .8em;
+  padding: 4px .5em;
+  background: #f5f2f0;
+  background: rgba(224, 224, 224, 0.4);
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+  border-radius: .5em;
 }
 
-.sidebar-tabs {
-    border-bottom: none;
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+  color: inherit;
+  text-decoration: none;
 }
-
-#typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-}
-
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
-}
-
-/** focus mode */
-.on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
-}
-
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
-}
-
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
-}
-
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
-}
-
-.mac-os #write{
-    caret-color: AccentColor;
-}
-
-.md-lang {
-    color: #b4654d;
-}
-
-/*.html-for-mac {
-    --item-hover-bg-color: #E6F0FE;
-}*/
-
-#md-notification .btn {
-    border: 0;
-}
-
-.dropdown-menu .divider {
-    border-color: #e5e5e5;
-    opacity: 0.4;
-}
-
-.ty-preferences .window-content {
-    background-color: #fafafa;
-}
-
-.ty-preferences .nav-group-item.active {
-    color: white;
-    background: #999;
-}
-
-.menu-item-container a.menu-style-btn {
-    background-color: #f5f8fa;
-    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
-}
-
-
- @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
-</style><title>Jiwei Zhang</title>
-</head>
-<body class='typora-export'><div class='typora-export-content'>
-<div id='write'  class=''><h2 id='jiwei-zhang-phd'><span>Jiwei Zhang (Ph.D.)</span></h2><p><strong><span>Present Address                                                             Contact</span></strong><span>              </span></p><p><span>No. 10, Xitucheng Road, Haidian                                </span><span>+</span><span> (86) 13051576839</span></p><p><span>District, Beijing, China                                                  </span><a href='mailto:jwzhang666@bupt.edu.cn' target='_blank' class='url'>jwzhang666@bupt.edu.cn</a><span>  (Common email addresses)</span></p><p><span>Postal：100876                                                             </span><a href='mailto:zhangjiwei5510@163.com' target='_blank' class='url'>zhangjiwei5510@163.com</a></p><h3 id='research-interests'><u><strong><span>Research Interests</span></strong></u></h3><p><span>              Computer Vision, Information Security,  Image forensics, Artificial Intelligence </span></p><h3 id='working-experience'><u><strong><span>Working Experience</span></strong></u></h3><p><span>              </span><strong><span>Lecturer</span></strong><span>, </span><strong><span>Master&#39;s Supervisor</span></strong><span>,Beijing University of Posts and Telecommunications    (2022-now)</span></p><p><span>              </span><strong><span>Post-Doc Researcher</span></strong><span>, Beijing University of Posts and Telecommunications    (2019-2021)</span></p><h3 id='education-background'><u><strong><span>Education Background</span></strong></u></h3><p><span>               Beijing University of Posts and Telecommunications  (2015-2019)</span></p><p><span>               Ph.D. in Computer Science and Technology</span></p><h3 id='academic-activities'><u><strong><span>Academic Activities</span></strong></u></h3><h5 id='associate-editor'><strong><span>Associate Editor</span></strong></h5><ul><li><p><span>Journal</span></p><ul><li><p><span>Journal of Artificial Intelligence &amp; Control Systems</span></p></li><li><p><span>Journal of Xi&#39;an University of Posts and Telecommunications‌</span></p></li></ul></li></ul><h5 id='guest-editor'><span>Guest Editor</span></h5><ul><li><p><span>Journal</span></p><ul><li><p><span>IEEE Transactions on Consumer Electronics</span></p></li><li><p><span>Electronics</span></p></li><li><p><span>Fractal Fract</span></p></li><li><p><span>Electronic Research Archive</span></p></li><li><p><span>Engineering and Applied Sciences</span></p></li></ul></li></ul><h5 id='chairpc-membertpc-member'><span>Chair/PC member/TPC member</span></h5><ul><li><p><span>Conference</span></p><ul><li><p><span>The 40th Annual AAAI Conference on Artificial Intelligence(AAAI2026), </span><strong><span>PC member</span></strong></p></li><li><p><span>The 33rd ACM International Conference on Multimedia(ACMMM2025), </span><strong><span>PC member</span></strong></p></li><li><p><span>ACM SIGKDD Conference on Knowledge Discovery and Data Mining(KDD2025), </span><strong><span>PC member</span></strong></p></li><li><p><span>International Joint Conference on Artificial Intelligence(IJCAI2025), </span><strong><span>PC member</span></strong></p></li><li><p><span>International Joint Conference on Artificial Intelligence2025 Survey Track(IJCAI2025 Survey Track), </span><strong><span>PC member</span></strong></p></li><li><p><span>The Fifteenth International Conference on Web Search and Data Mining (WSDM2022), </span><strong><span>PC member</span></strong></p></li><li><p><span>ACM SIGKDD Conference on Knowledge Discovery and Data Mining （KDD2022), </span><strong><span>PC member</span></strong></p></li><li><p><span>The Fourteenth International Conference on Swarm Intelligence (ICSI&#39;2023),  </span><strong><span>Special session Chair</span></strong></p></li><li><p><span>The Eighth International Conference on Data Mining and Big Data(DMBD2023),  </span><strong><span>Special session Chair</span></strong></p></li><li><p><span>The SeventhInternational Conference on Data Mining and Big Data(DMBD2022),  </span><strong><span>Special session Chair</span></strong></p></li><li><p><span>The 4th International Workshop on Cyberspace Security (IWCSS2020) , </span><strong><span>Publicity Chairs</span></strong></p></li><li><p><span>The 17th International Conference on Digital Image Processing (ICDIP 2025), </span><strong><span>Technical Program Committee</span></strong></p></li><li><p><span>The 2nd International Conference on Advanced Technologies and Applications of Modern Industry (ATAMI 2022), </span><strong><span>Technical Program Committee</span></strong></p></li></ul></li></ul><h5 id='reviewer'><span>Reviewer   </span></h5><ul><li><p><span>Journal</span></p><ul><li><p><span>IEEE Transactions on Dependable and Secure Computing</span></p></li><li><p><span>Information Processing and Management</span></p></li><li><p><span>IEEE Transactions on Intelligent Transportation Systems</span></p></li><li><p><span>Advanced Engineering Informatics</span></p></li><li><p><span>Expert Systems With Applications </span></p></li><li><p><span>Knowledge-Based Systems</span></p></li><li><p><span>IEEE Journal of Biomedical and Health Informatics</span></p></li><li><p><span>IEEE Transactions on Network Science and Engineering</span></p></li><li><p><span>IEEE Transactions on Consumer Electronics</span></p></li><li><p><span>IEEE Geoscience and Remote Sensing Letters</span></p></li><li><p><span>Neurocomputing</span></p></li><li><p><span>Signal Processing</span></p></li><li><p><span>Journal of Big Data</span></p></li><li><p><span>Applied Soft Computing</span></p></li><li><p><span>Displays</span></p></li><li><p><span>Computer Vision and Image Understanding</span></p></li></ul></li><li><p><span>Conference</span></p><ul><li><p><span>International Conference on High Performance Computing and Communications(HPCC 2025)</span></p></li><li><p><span>The 12th IEEE International Conference on Cyber, Physical and Social Computing (CPSCom2020)</span></p></li><li><p><span>The 5th IEEE Cyber Science and Technology Congress (CyberSciTech 2020)</span></p></li><li><p><span>The 6th International Conference on Fuzzy Systems and Data Mining (FSDM2020)</span></p></li><li><p><span>The 10th International Conference on Electronics, Communications and Networks(CECNet2020)</span></p></li><li><p><span>The 6th IEEE Cyber Science and Technology Congress (CyberSciTech 2021)</span></p></li></ul></li></ul><h5 id='membership'><span>Membership   </span></h5><ul><li><p><span>Member of IEEE (member no. 95171207, starting from year 2019 -).</span></p></li></ul><h3 id='selected-publications---total-publish-over-50-papers'><u><strong><span>Selected Publications</span></strong></u><span>   (total publish over 50 papers)</span></h3><ol start='' ><li><p><span>Zhang J, Bhuiyan M Z A, Yang X, et al. Trustworthy target tracking with collaborative deep reinforcement learning in EdgeAI-Aided IoT[J]. IEEE Transactions on Industrial Informatics, 2021, 18(2): 1301-1309.</span></p></li><li><p><span>Zhang J, Cui H, Yang AL, Gu F, Shi C, Zhang W, Niu S. An intelligent digital twin system for paper manufacturing in the paper industry[J]. Expert Systems with Applications. 2023，230(1): 120614-120629.</span></p></li><li><p><span>Zhang J, Bhuiyan M Z A, Yang X, et al. AntiConcealer: Reliable Detection of Adversary Concealed Behaviors in EdgeAI-Assisted IoT[J]. IEEE Internet of Things Journal, 2021, 9(22): 22184-22193. </span></p></li><li><p><span>Zhang J, Tu Y, Sun Z, et al.Intelligent Connected Vehicle Data Privacy and Security Transaction Sharing System Based on Blockchain,IEEE Transactions on Intelligent Transportation Systems,2025.</span></p></li><li><p><span>Qixian Hao, Kai Wang, Shaozhang Niu, Jiwei Zhang</span><em><span>*, Haoliang Cui. TEPR-Net: Image Inpainting Localization Network via Texture Enhancement and Progressive Refinement. IEEE Transactions on Multimedia,2025.</span></em></p></li><li><p><span>F Kou, Y Yao, J Han, J Wang, H Li, X Li, J Zhang</span><em><span>*. DualFocus GAN for Robust Watermarking in Transportation Cyber-Physical Systems,IEEE Transactions on Intelligent Transportation Systems,2025.</span></em></p></li><li><p><span>Yu H, Zhang J</span><em><span>*, Li Z, et al. SecureFIA: Secure Federated Image Authentication Intelligent System for Smart Cities[J]. IEEE Transactions on Consumer Electronics, 2024.</span></em></p></li><li><p><span>Yan X, Zhang J</span><em><span>*, Elahi H, et al. A personalized search query generating method for safety-enhanced vehicle-to-people networks[J]. IEEE Transactions on Vehicular Technology, 2021, 70(6): 5296-5307.</span></em></p></li><li><p><span>Wang M,Niu S, Hao Q, Zhang J</span><em><span>*，ForgDiffuser: General Image Forgery Localization with Diffusion Models，In Proceedings of the International Joint Conference on Artificial Intelligence（IJCAI, CCF A),2025.</span></em></p></li><li><p><span>]Hao Q, Niu S, Wang M, Zhang J</span><em><span>*，DcDsDiff: Dual-Conditional and Dual-Stream Diffusion Model for Generative Image Tampering Localizatio，In Proceedings of the International Joint Conference on Artificial Intelligence（IJCAI, CCF A)，2025.</span></em></p></li><li><p><span>Hao Q, Ren R, Wang K, Niu S, Zhang J, Wang M. EC-Net: General image tampering localization network based on edge distribution guidance and contrastive learning[J]. Knowledge-Based Systems, 2024, 293: 111656.</span></p></li><li><p><span>Yu Z, Pei J, Zhu M, Zhang J, Li J. Multi-attribute adaptive aggregation transformer for vehicle re-identification[J]. Information Processing &amp; Management, 2022, 59(2): 102868-102882.</span></p></li><li><p><span>Ren R, Hao Q, Gu F, Niu S, Zhang J, Wang M. EMF-Net: An edge-guided multi-feature fusion network for text manipulation detection[J]. Expert Systems with Applications. 2024, 249(2): 1-15.</span></p></li><li><p><span>Hao Q, Ren R, Niu S, Wang K, Wang M, Zhang J. UGEE-Net: Uncertainty-Guided and Edge-Enhanced Network for Image Splicing Localization. Neural Networks, 2024,178（10）:106430. </span></p></li><li><p><span>Wang K，Niu S, Hao Q, Zhang J. InpDiffusion: Image Inpainting Localization via Conditional Diffusion Models，In Proceedings of the Annual AAAI Conference on Artificial Intelligence，2024. (AAAI，CCF A ) </span></p></li><li><p><span>Ren R, Hao Q, Niu S, Xiong K, Zhang J, Wang M. MFI-Net: Multi-feature Fusion Identification Networks for Artificial Intelligence Manipulation[J]. IEEE Transactions on Circuits and Systems for Video Technology. 2023，34(2): 1-15.</span></p></li><li><p><span>Ren R, Niu S, Jin J, Zhang J, Ren H, and Zhao X. Multi-scale attention context-aware network for detection and localization of image splicing[J]. Applied Intelligence, 2023,2(25): 1-20.</span></p></li><li><p><span>Yu H, Zhang J*, Feng H. Secure CPS Content-Based Image Retrieval Using Tripartite Delayed Homomorphic Secret Sharing &amp; CNN[J].Human-centric Computing and Information Sciences, 2024, 14(3): 14-35.</span></p></li><li><p><span>Kou F，Wang B，Li H，Zhu C, Shi L, Zhang J,Qi L. Potential Features Fusion Network for Multimodal Fake News Detections[J]. ACM Transactions on Multimedia Computing Communications and Applications，2024. （CCF B）</span></p></li><li><p><span>Sun Y, Zhang J, Wang W. Adversarial Learning Enhancement for 3D Human Pose and Shape Estimation[C].In Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing，2022: 3743-3747.（CCF B）</span></p></li><li><p><span>Cao Z,Niu S, Zhang J, et al. Fast generative adversarial networks model for masked image restoration[J]. IET Image Processing, 2019,13(7)：1124-1129. （CCF C）</span></p></li><li><p><span>Cao Z , Niu S , Zhang J , et al. Generative adversarial networks model for visible watermark removal[J]. IET Image Processing, 2019, 13(10):1783-1789.（CCF C）</span></p></li><li><p><span>Cao Z , Niu S , Zhang J , et al. MRGAN: A Generative Adversarial Networks Model for Global Mosaic Removal[J]. IET Image Processing, 2020，14(10)：2235-2240.（CCF C）</span></p></li><li><p><span>Zhang J, Yan X, Cheng Z, et al. A face recognition algorithm based on feature fusion[J]. Concurrency and Computation: Practice and Experience, 2022, 34(14): 1-14.(CCF C )</span></p></li><li><p><span>Wang X, Wang H, Niu S, Zhang J. Detection and localization of image forgeries using improved mask regional convolutional neural network[J]. Mathematical Biosciences and Engineering, 2019, 16(5): 4581-4593.(JCR 2)</span></p></li><li><p><span>Zhang J, Li Y, Niu S, et al. Improved fully convolutional network for digital image region forgery detection[J]. CMC-Computers Materials &amp; Continua, 2019, 60(1): 287-303.(JCR 2，ESI journal)</span></p></li><li><p><span>Wang X, Niu S, Zhang J. Digital image forensics based on CFA interpolation feature and Gaussian mixture model[M].Digital Forensics and Forensic Investigations: Breakthroughs in Research and Practice, 2020: 80-91.</span></p><p><strong><span>More paper can visit google link </span><a href='https://scholar.google.com/citations?hl=zh-CN&amp;user=CiOjUTMAAAAJ' target='_blank' class='url'>https://scholar.google.com/citations?hl=zh-CN&user=CiOjUTMAAAAJ</a><span> </span></strong></p></li></ol><h3 id='selected-projects'><u><strong><span>Selected Projects</span></strong></u></h3><p><span>✧Image Tampering Reliability Detection Algorithm Based on Feature Fusion</span>
-<span>➢Role: Project Group Leader</span>
-<span>➢Funding: Fundamental Research Funds For The Central Universities. </span></p><p><span>✧Audio and Video Recording Management System Based on Large Model Technology</span>
-<span>➢Role: Project Group Leader</span>
-<span>➢Funding: The Cooperation with the Company. </span></p><p><span>✧ Industrial Intelligence Model Based on Digital Twins</span>
-<span>➢Role: Project Group Leader</span>
-<span>➢Funding: The Cooperation with the Company. </span></p><p><span>✧ Key Technology Of Authenticity Identification Of News Digital Images</span>
-<span>➢Role: Principal Investigator</span>
-<span>➢Funding: National Natural Science Foundation of China. </span></p><p><span>✧Demonstration of Digital Twin Applications for New Public Service Models in Museums</span>
-<span>➢Role: Principal Investigator</span>
-<span>➢Funding: National Key Research and Development Program Project. </span></p><p><span>✧Key Technologies for Intelligent Information Disclosure Audit and Regulatory Data Security Sharing</span>
-<span>➢Role: Principal Investigator</span>
-<span>➢Funding: National Key Research and Development Program Project. </span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><span>      </span></p><p><span> </span></p></div></div>
-</body>
-</html>
+</style> <style>body{max-width:808px; padding:24px;}</style></head><body><div id='markdown_content' class='markdown-body'><h2><a id="jiwei-zhang-ph-d" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jiwei Zhang (Ph.D.)</h2>
+<p><strong>Present Address                                                             Contact</strong></p>
+<p>No. 10, Xitucheng Road, Haidian                                + (86) 13051576839</p>
+<p>District, Beijing, China                                                  <a href="mailto:jwzhang666@bupt.edu.cn">jwzhang666@bupt.edu.cn</a>  (Common email addresses)</p>
+<p>Postal：100876                                                             <a href="mailto:zhangjiwei5510@163.com">zhangjiwei5510@163.com</a></p>
+<h3><a id="u-research-interests-u" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><u><strong>Research Interests</strong></u></h3>
+<p>​              Computer Vision, Information Security,  Image forensics, Artificial Intelligence</p>
+<h3><a id="u-working-experience-u" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><u><strong>Working Experience</strong></u></h3>
+<p>​              <strong>Lecturer</strong>, <strong>Master's Supervisor</strong>,Beijing University of Posts and Telecommunications    (2022-now)</p>
+<p>​              <strong>Post-Doc Researcher</strong>, Beijing University of Posts and Telecommunications    (2019-2021)</p>
+<h3><a id="u-education-background-u" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><u><strong>Education Background</strong></u></h3>
+<p>​               Beijing University of Posts and Telecommunications  (2015-2019)</p>
+<p>​               Ph.D. in Computer Science and Technology</p>
+<h3><a id="u-academic-activities-u" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><u><strong>Academic Activities</strong></u></h3>
+<h5><a id="associate-editoryouth-editor" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Associate Editor/Youth Editor</h5>
+<ul>
+<li>Journal
+<ul>
+<li>Telecommunication Systems,   Associate Editor</li>
+<li>Data Science and Management,   Youth Editor</li>
+<li>Journal of Artificial Intelligence &amp; Control Systems,    Youth Editor</li>
+<li>Journal of Xi'an University of Posts and Telecommunications,‌   Youth Editor</li>
+</ul>
+</li>
+</ul>
+<h5><a id="guest-editor" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Guest Editor</h5>
+<ul>
+<li>Journal
+<ul>
+<li>
+<p>IEEE Transactions on Consumer Electronics</p>
+</li>
+<li>
+<p>Electronics</p>
+</li>
+<li>
+<p>Fractal Fract</p>
+</li>
+<li>
+<p>Electronic Research Archive</p>
+</li>
+<li>
+<p>Engineering and Applied Sciences</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5><a id="chairpc-membertpc-member" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chair/PC member/TPC member</h5>
+<ul>
+<li>Conference
+<ul>
+<li>International Conference on Learning Representations 2026(ICLR2026), <strong>Area Chair</strong></li>
+<li>The 40th Annual AAAI Conference on Artificial Intelligence(AAAI2026), <strong>PC member</strong></li>
+<li>The 33rd ACM International Conference on Multimedia(ACMMM2025), <strong>PC member</strong></li>
+<li>ACM SIGKDD Conference on Knowledge Discovery and Data Mining(KDD2025), <strong>PC member</strong></li>
+<li>International Joint Conference on Artificial Intelligence(IJCAI2025), <strong>PC member</strong></li>
+<li>International Joint Conference on Artificial Intelligence2025 Survey Track(IJCAI2025 Survey Track), <strong>PC member</strong></li>
+<li>The Fifteenth International Conference on Web Search and Data Mining (WSDM2022), <strong>PC member</strong></li>
+<li>ACM SIGKDD Conference on Knowledge Discovery and Data Mining （KDD2022), <strong>PC member</strong></li>
+<li>The Fourteenth International Conference on Swarm Intelligence (ICSI'2023),  <strong>Special session Chair</strong></li>
+<li>The Eighth International Conference on Data Mining and Big Data(DMBD2023),  <strong>Special session Chair</strong></li>
+<li>The SeventhInternational Conference on Data Mining and Big Data(DMBD2022),  <strong>Special session Chair</strong></li>
+<li>The 4th International Workshop on Cyberspace Security (IWCSS2020) , <strong>Publicity Chairs</strong></li>
+<li>The 17th International Conference on Digital Image Processing (ICDIP 2025), <strong>Technical Program Committee</strong></li>
+<li>The 2nd International Conference on Advanced Technologies and Applications of Modern Industry (ATAMI 2022), <strong>Technical Program Committee</strong></li>
+</ul>
+</li>
+</ul>
+<h5><a id="reviewer" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reviewer</h5>
+<ul>
+<li>
+<p>Journal</p>
+<ul>
+<li>IEEE Transactions on Dependable and Secure Computing</li>
+<li>Information Processing and Management</li>
+<li>IEEE Transactions on Intelligent Transportation Systems</li>
+<li>Advanced Engineering Informatics</li>
+<li>Expert Systems With Applications</li>
+<li>Knowledge-Based Systems</li>
+<li>IEEE Journal of Biomedical and Health Informatics</li>
+<li>IEEE Transactions on Network Science and Engineering</li>
+<li>IEEE Transactions on Consumer Electronics</li>
+<li>IEEE Geoscience and Remote Sensing Letters</li>
+<li>Neurocomputing</li>
+<li>Signal Processing</li>
+<li>Journal of Big Data</li>
+<li>Applied Soft Computing</li>
+<li>Displays</li>
+<li>Computer Vision and Image Understanding</li>
+</ul>
+</li>
+<li>
+<p>Conference</p>
+<ul>
+<li>International Conference on High Performance Computing and Communications(HPCC 2025)</li>
+<li>The 12th IEEE International Conference on Cyber, Physical and Social Computing (CPSCom2020)</li>
+<li>The 5th IEEE Cyber Science and Technology Congress (CyberSciTech 2020)</li>
+<li>The 6th International Conference on Fuzzy Systems and Data Mining (FSDM2020)</li>
+<li>The 10th International Conference on Electronics, Communications and Networks(CECNet2020)</li>
+<li>The 6th IEEE Cyber Science and Technology Congress (CyberSciTech 2021)</li>
+</ul>
+</li>
+</ul>
+<h5><a id="membership" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membership</h5>
+<ul>
+<li>Member of IEEE (member no. 95171207, starting from year 2019 -).</li>
+</ul>
+<h3><a id="u-selected-publications-u-total-publish-over-50-papers" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><u><strong>Selected Publications</strong></u>   (total publish over 50 papers)</h3>
+<ol>
+<li>
+<p>Zhang J, Bhuiyan M Z A, Yang X, et al. Trustworthy target tracking with collaborative deep reinforcement learning in EdgeAI-Aided IoT[J]. IEEE Transactions on Industrial Informatics, 2021, 18(2): 1301-1309.</p>
+</li>
+<li>
+<p>Zhang J, Cui H, Yang AL, Gu F, Shi C, Zhang W, Niu S. An intelligent digital twin system for paper manufacturing in the paper industry[J]. Expert Systems with Applications. 2023，230(1): 120614-120629.</p>
+</li>
+<li>
+<p>Zhang J, Bhuiyan M Z A, Yang X, et al. AntiConcealer: Reliable Detection of Adversary Concealed Behaviors in EdgeAI-Assisted IoT[J]. IEEE Internet of Things Journal, 2021, 9(22): 22184-22193.</p>
+</li>
+<li>
+<p>Zhang J, Tu Y, Sun Z, et al.Intelligent Connected Vehicle Data Privacy and Security Transaction Sharing System Based on Blockchain,IEEE Transactions on Intelligent Transportation Systems,2025.</p>
+</li>
+<li>
+<p>Qixian Hao, Kai Wang, Shaozhang Niu, Jiwei Zhang**, Haoliang Cui. TEPR-Net: Image Inpainting Localization Network via Texture Enhancement and Progressive Refinement. IEEE Transactions on Multimedia,2025.*</p>
+</li>
+<li>
+<p>F Kou, Y Yao, J Han, J Wang, H Li, X Li, J Zhang**. DualFocus GAN for Robust Watermarking in Transportation Cyber-Physical Systems,IEEE Transactions on Intelligent Transportation Systems,2025.*</p>
+</li>
+<li>
+<p>Yu H, Zhang J**, Li Z, et al. SecureFIA: Secure Federated Image Authentication Intelligent System for Smart Cities[J]. IEEE Transactions on Consumer Electronics, 2024.*</p>
+</li>
+<li>
+<p>Yan X, Zhang J**, Elahi H, et al. A personalized search query generating method for safety-enhanced vehicle-to-people networks[J]. IEEE Transactions on Vehicular Technology, 2021, 70(6): 5296-5307.*</p>
+</li>
+<li>
+<p>Wang M,Niu S, Hao Q, Zhang J**，ForgDiffuser: General Image Forgery Localization with Diffusion Models，In Proceedings of the International Joint Conference on Artificial Intelligence（IJCAI, CCF A),2025.*</p>
+</li>
+<li>
+<p>]Hao Q, Niu S, Wang M, Zhang J**，DcDsDiff: Dual-Conditional and Dual-Stream Diffusion Model for Generative Image Tampering Localizatio，In Proceedings of the International Joint Conference on Artificial Intelligence（IJCAI, CCF A)，2025.*</p>
+</li>
+<li>
+<p>Hao Q, Ren R, Wang K, Niu S, Zhang J, Wang M. EC-Net: General image tampering localization network based on edge distribution guidance and contrastive learning[J]. Knowledge-Based Systems, 2024, 293: 111656.</p>
+</li>
+<li>
+<p>Yu Z, Pei J, Zhu M, Zhang J, Li J. Multi-attribute adaptive aggregation transformer for vehicle re-identification[J]. Information Processing &amp; Management, 2022, 59(2): 102868-102882.</p>
+</li>
+<li>
+<p>Ren R, Hao Q, Gu F, Niu S, Zhang J, Wang M. EMF-Net: An edge-guided multi-feature fusion network for text manipulation detection[J]. Expert Systems with Applications. 2024, 249(2): 1-15.</p>
+</li>
+<li>
+<p>Hao Q, Ren R, Niu S, Wang K, Wang M, Zhang J. UGEE-Net: Uncertainty-Guided and Edge-Enhanced Network for Image Splicing Localization. Neural Networks, 2024,178（10）:106430.</p>
+</li>
+<li>
+<p>Wang K，Niu S, Hao Q, Zhang J. InpDiffusion: Image Inpainting Localization via Conditional Diffusion Models，In Proceedings of the Annual AAAI Conference on Artificial Intelligence，2024. (AAAI，CCF A )</p>
+</li>
+<li>
+<p>Ren R, Hao Q, Niu S, Xiong K, Zhang J, Wang M. MFI-Net: Multi-feature Fusion Identification Networks for Artificial Intelligence Manipulation[J]. IEEE Transactions on Circuits and Systems for Video Technology. 2023，34(2): 1-15.</p>
+</li>
+<li>
+<p>Ren R, Niu S, Jin J, Zhang J, Ren H, and Zhao X. Multi-scale attention context-aware network for detection and localization of image splicing[J]. Applied Intelligence, 2023,2(25): 1-20.</p>
+</li>
+<li>
+<p>Yu H, Zhang J*, Feng H. Secure CPS Content-Based Image Retrieval Using Tripartite Delayed Homomorphic Secret Sharing &amp; CNN[J].Human-centric Computing and Information Sciences, 2024, 14(3): 14-35.</p>
+</li>
+<li>
+<p>Kou F，Wang B，Li H，Zhu C, Shi L, Zhang J,Qi L. Potential Features Fusion Network for Multimodal Fake News Detections[J]. ACM Transactions on Multimedia Computing Communications and Applications，2024. （CCF B）</p>
+</li>
+<li>
+<p>Sun Y, Zhang J, Wang W. Adversarial Learning Enhancement for 3D Human Pose and Shape Estimation[C].In Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing，2022: 3743-3747.（CCF B）</p>
+</li>
+<li>
+<p>Cao Z,Niu S, Zhang J, et al. Fast generative adversarial networks model for masked image restoration[J]. IET Image Processing, 2019,13(7)：1124-1129. （CCF C）</p>
+</li>
+<li>
+<p>Cao Z , Niu S , Zhang J , et al. Generative adversarial networks model for visible watermark removal[J]. IET Image Processing, 2019, 13(10):1783-1789.（CCF C）</p>
+</li>
+<li>
+<p>Cao Z , Niu S , Zhang J , et al. MRGAN: A Generative Adversarial Networks Model for Global Mosaic Removal[J]. IET Image Processing, 2020，14(10)：2235-2240.（CCF C）</p>
+</li>
+<li>
+<p>Zhang J, Yan X, Cheng Z, et al. A face recognition algorithm based on feature fusion[J]. Concurrency and Computation: Practice and Experience, 2022, 34(14): 1-14.(CCF C )</p>
+</li>
+<li>
+<p>Wang X, Wang H, Niu S, Zhang J. Detection and localization of image forgeries using improved mask regional convolutional neural network[J]. Mathematical Biosciences and Engineering, 2019, 16(5): 4581-4593.(JCR 2)</p>
+</li>
+<li>
+<p>Zhang J, Li Y, Niu S, et al. Improved fully convolutional network for digital image region forgery detection[J]. CMC-Computers Materials &amp; Continua, 2019, 60(1): 287-303.(JCR 2，ESI journal)</p>
+</li>
+<li>
+<p>Wang X, Niu S, Zhang J. Digital image forensics based on CFA interpolation feature and Gaussian mixture model[M].Digital Forensics and Forensic Investigations: Breakthroughs in Research and Practice, 2020: 80-91.</p>
+<p>**More paper can visit google link <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=CiOjUTMAAAAJ">https://scholar.google.com/citations?hl=zh-CN&amp;user=CiOjUTMAAAAJ</a> **</p>
+</li>
+</ol>
+<h3><a id="u-selected-projects-u" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><u><strong>Selected Projects</strong></u></h3>
+<p>✧Image Tampering Reliability Detection Algorithm Based on Feature Fusion<br />
+➢Role: Project Group Leader<br />
+➢Funding: Fundamental Research Funds For The Central Universities.</p>
+<p>✧Audio and Video Recording Management System Based on Large Model Technology<br />
+➢Role: Project Group Leader<br />
+➢Funding: The Cooperation with the Company.</p>
+<p>✧ Industrial Intelligence Model Based on Digital Twins<br />
+➢Role: Project Group Leader<br />
+➢Funding: The Cooperation with the Company.</p>
+<p>✧ Key Technology Of Authenticity Identification Of News Digital Images<br />
+➢Role: Principal Investigator<br />
+➢Funding: National Natural Science Foundation of China.</p>
+<p>✧Demonstration of Digital Twin Applications for New Public Service Models in Museums<br />
+➢Role: Principal Investigator<br />
+➢Funding: National Key Research and Development Program Project.</p>
+<p>✧Key Technologies for Intelligent Information Disclosure Audit and Regulatory Data Security Sharing<br />
+➢Role: Principal Investigator<br />
+➢Funding: National Key Research and Development Program Project.</p>
+<p>​</p>
+</div></body></html>
